@@ -1,43 +1,40 @@
-![logo](/assets/logo.png)
+![logo](https://raw.githubusercontent.com/fubuki-dev/Fubuki/main/assets/logo.png)
 # Fubuki: Next generation hybrid web framework
+Fubuki is a simple and flexible hybrid web framework. It is lightweight yet powerful, supporting rapid development. Fubuki is influenced by Laravel's features, while providing Flask-like ease of use in areas like routing. It also supports regular expressions in routes, allowing you to store arguments.
 
-Fubuki is a ASGI-based hybrid web framework that combines the simplicity of Flask with the power of Django to provide a new standard for web development.
+## Features
 
-Fubukiは、シンプルで柔軟なハイブリッドWebフレームワークです。軽量でありながら強力な機能を提供し、迅速な開発をサポートします。FubukiはLaravelから影響を受けた機能を持ちつつ、ルーティングなどの部分ではFlaskライクな使いやすさを提供します。また、ルート部分で正規表現をサポートし、引数に格納することができます。
+- Simple and intuitive API
+- Middleware support
+- Serving static files
+- Template engine support
+- Efficient routing
+- Flexible development with hybrid architecture
+- Features influenced by Laravel
+- Flask-like easy routing
+- Supports regular expressions and stores them in route arguments
 
-## 特徴
+## Installation
 
-- シンプルで直感的なAPI
-- ミドルウェアのサポート
-- 静的ファイルの提供
-- テンプレートエンジンのサポート
-- 効率的なルーティング
-- ハイブリッドなアーキテクチャで柔軟な開発が可能
-- Laravelから影響を受けた機能
-- Flaskライクな使いやすいルーティング
-- 正規表現をサポートし、ルート引数に格納可能
-
-## インストール
-
-Fubukiをインストールするには、以下のコマンドを使用します。
+To install Fubuki, use the following command:
 
 ```sh
 pip install fubuki
 ```
 
-## 使用方法
+## Usage
 
-### プロジェクトの作成
+### Creating a Project
 
-新しいFubukiプロジェクトを作成するには、以下のコマンドを実行します。
+To create a new Fubuki project, run the following command:
 
 ```sh
 fubuki create_project <project_name>
 ```
 
-### ディレクトリ構成
+### Directory Structure
 
-新しいプロジェクトのディレクトリ構成は以下の通りです。
+The directory structure of a new project is as follows:
 
 ```
 <project_name>/
@@ -59,9 +56,9 @@ fubuki create_project <project_name>
 └── main.py
 ```
 
-### コントローラの追加
+### Adding a Controller
 
-コントローラを追加するには、`app/controllers`ディレクトリに新しいPythonファイルを作成し、以下のようにルートを定義します。
+To add a controller, create a new Python file in the `app/controllers` directory and define the routes as follows:
 
 ```python
 from fubuki import Controller, route
@@ -77,9 +74,9 @@ class MyController(Controller):
         return response
 ```
 
-### 正規表現を使用したルート
+### Using Regular Expressions in Routes
 
-Fubukiでは、Flaskのようにルートで正規表現を使用し、引数に格納することができます。
+Fubuki allows you to use regular expressions in routes, similar to Flask, and store the arguments.
 
 ```python
 from fubuki import Controller, route
@@ -104,58 +101,35 @@ class UserController(Controller):
         return response
 ```
 
-### ミドルウェアの追加
+### Configuring the Application
 
-ミドルウェアを追加するには、`app/middlewares`ディレクトリに新しいPythonファイルを作成し、以下のようにミドルウェアを定義します。
-
-```python
-class MyMiddleware:
-    async def __call__(self, scope, receive, send, next_handler):
-        # 前処理
-        print("Before request")
-        
-        # 次のミドルウェアまたはハンドラを呼び出し
-        response = await next_handler(scope, receive, send)
-        
-        # 後処理
-        print("After request")
-        
-        return response
-```
-
-### アプリケーションの設定
-
-アプリケーションにコントローラとミドルウェアを追加するには、`app.py`を編集します。
+To add controllers to the application, edit the `routes.py` file.
 
 ```python
-from app import App
-from app.routes import setup_routes
-from app.middlewares.my_middleware import MyMiddleware
+from app.controllers.home_controller import UserController
 
-app = App()
-setup_routes(app)
-
-# ミドルウェアの追加
-app.add_middleware(MyMiddleware)
+def setup_routes(app):
+    for controller_class in [MyController, UserController]:
+        app.add_route(controller_class)
 ```
 
-### アプリケーションの実行
+### Running the Application
 
-アプリケーションを実行するには、`main.py`を実行します。
+To run the application, execute the `main.py` file.
 
 ```sh
 python main.py
 ```
 
-## 貢献
+## Contributing
 
-貢献を歓迎します！バグ報告、機能リクエスト、プルリクエストはGitHubのリポジトリで受け付けています。
+Contributions are welcome! You can submit bug reports, feature requests, and pull requests on the GitHub repository.
 
-## ライセンス
+## License
 
-このプロジェクトはMITライセンスの下でライセンスされています。詳細については、[LICENSE](LICENSE)ファイルを参照してください。
+This project is licensed under the MIT License. For more details, see the [LICENSE](LICENSE) file.
 
-## 作者
+## Author
 
-- 名前: AmaseCocoa
-- Fediverse: [@AmaseCocoa@misskey.io](https://misskey.io/@AmaseCocoa)
+- Name: AmaseCocoa
+- Fediverse: [@AmaseCocoa@misskey.io](https://misskey.io/@AmaseCocoa) 
