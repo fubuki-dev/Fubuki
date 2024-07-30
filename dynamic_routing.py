@@ -1,13 +1,4 @@
 import re
-import time
-
-try:
-    import regex as re
-    print("regex library detected and imported.")
-except ModuleNotFoundError:
-    pass
-
-from asgiref.compatibility import guarantee_single_callable
 
 class ASGIApp:
     def __init__(self):
@@ -21,7 +12,6 @@ class ASGIApp:
         return wrapper
 
     async def __call__(self, scope, receive, send):
-        start = time.time()
         assert scope['type'] == 'http'
         path = scope['path']
         for pattern, handler in self.routes:
@@ -29,11 +19,8 @@ class ASGIApp:
             if match:
                 scope['path_params'] = match.groupdict()
                 await handler(scope, receive, send)
-                response_time = time.time() - start
                 return
         await self.default_response(scope, receive, send)
-        response_time = time.time() - start
-        print(f"Request to {path} took {response_time:.6f} seconds")
 
     async def default_response(self, scope, receive, send):
         response = {

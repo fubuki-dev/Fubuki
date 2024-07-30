@@ -46,7 +46,6 @@ def cache(cache_handler: CacheHandler, expire: int = 60):
 
             cached_response = await cache_handler.get(cache_key)
             if cached_response:
-                print("Cache hit")
                 if isinstance(cached_response, str):
                     cached_response = json.loads(cached_response)
                 headers = deserialize_headers(cached_response.get("headers", {}))
