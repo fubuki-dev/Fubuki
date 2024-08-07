@@ -20,7 +20,7 @@ class TemplateResponse(Response):
         if engine == 'jinja2':
             if isinstance(tmpl_dir, list):
                 tmpl_dir = tmpl_dir[0]
-            self.env = Jinja2Environment(loader=Jinja2FileSystemLoader(tmpl_dir))
+            self.env = Jinja2Environment(loader=Jinja2FileSystemLoader(tmpl_dir), enable_async=True) 
         elif engine == 'mako':
             if isinstance(tmpl_dir, str):
                 tmpl_dir = [tmpl_dir]
@@ -31,13 +31,10 @@ class TemplateResponse(Response):
     async def send(self, send):
         if self.engine == 'jinja2':
             template = self.env.get_template(self.template_name)
-            content = template.render(self.context)
+            content = await template.render_async(self.context)
         elif self.engine == 'mako':
             template = self.lookup.get_template(self.template_name)
             content = template.render(**self.context)
-        elif self.engine == 'minijinja':
-            template = self.env.get_template(self.template_name)
-            content = template.render(self.context)
         await send({
             'type': 'http.response.start',
             'status': self.status,
