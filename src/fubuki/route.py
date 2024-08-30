@@ -1,8 +1,8 @@
-
-def route(path, methods=['GET']):
+def route(path, methods=['GET'], schema=True):
     def decorator(handler):
         handler._route_path = path
         handler._route_methods = methods
+        handler._include_in_schema = schema
         return handler
     return decorator
 
@@ -12,11 +12,11 @@ def middleware(type: str="http"):
         return handler
     return decorator
 
-def get(path):
-    return route(path, methods=['GET'])
+def get(path, schema=True):
+    return route(path, methods=['GET'], schema=schema)
 
-def post(path):
-    return route(path, methods=['POST'])
+def post(path, schema=True):
+    return route(path, methods=['POST'], schema=schema)
 
-def ws(path):
-    return route(path, methods=['WS'])
+def ws(path, schema=True):
+    return route(path, methods=['WS'], schema=schema)
