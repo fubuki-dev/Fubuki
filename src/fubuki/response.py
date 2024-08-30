@@ -52,6 +52,20 @@ class Response:
             'body': self.content,
         })
 
+class HTMLResponse(Response):
+    def __init__(
+        self, 
+        content: str,
+        headers: List[Tuple[Union[str, bytes], Union[str, bytes]]] = [],
+        status: int = 200, 
+    ) -> None:
+        super().__init__(content, content_type="text/html", headers=headers, status=status)
+
+class Redirect(Response):
+    def __init__(self, location: str | bytes, headers: List[Tuple[str | bytes]] = [], status: int = 301) -> None:
+        headers = [(b'location', location.encode() if isinstance(location, str) else location)] + headers
+        super().__init__(b"", b"text/plain", headers, status)
+
 class JSONResponse(Response):
     def __init__(self, content: Union[dict, list], content_type: str | bytes = "application/json", headers: List[Tuple[str | bytes]] = [], status: int = 200) -> None:
         if use_orjson:
