@@ -24,7 +24,7 @@ pip install fubuki
 
 ## Usage
 
-### Creating a Project
+### Creating a Project (WIP)
 
 To create a new Fubuki project, run the following command:
 
