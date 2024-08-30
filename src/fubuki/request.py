@@ -1,5 +1,6 @@
 import json
 from typing import Optional, Dict, Any
+from urllib.parse import parse_qs
 
 from pydantic import BaseModel, ValidationError
 from yarl import URL
@@ -32,7 +33,9 @@ class Request:
 
     @property
     def query_params(self):
-        return self._url.query
+        parsed_query = parse_qs(self.scope['query_string'].decode('utf-8'))
+        query_dict = {k: v[0] if len(v) == 1 else v for k, v in parsed_query.items()}
+        return query_dict
 
     @property
     def url(self):
