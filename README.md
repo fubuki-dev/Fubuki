@@ -11,7 +11,7 @@ Fubuki is a simple and flexible hybrid web framework. It is lightweight yet powe
 - Efficient routing
 - Flexible development with hybrid architecture
 - Features influenced by Laravel
-- Flask-like easy routing
+- LiteStar-like easy routing
 - Supports regular expressions and stores them in route arguments
 
 ## Installation
