@@ -62,43 +62,12 @@ To add a controller, create a new Python file in the `app/controllers` directory
 
 ```python
 from fubuki import Controller, route
+from fubuki.response import JSONResponse
 
 class MyController(Controller):
-    @classmethod
     @route("/my_path")
-    async def my_route(cls, scope, receive, send):
-        response = {
-            "status": 200,
-            "body": "Hello, World!"
-        }
-        return response
-```
-
-### Using Regular Expressions in Routes
-
-Fubuki allows you to use regular expressions in routes, similar to Flask, and store the arguments.
-
-```python
-from fubuki import Controller, route
-
-class UserController(Controller):
-    @classmethod
-    @route("/user/<int:user_id>")
-    async def get_user(cls, user_id, scope, receive, send):
-        response = {
-            "status": 200,
-            "body": f"User ID: {user_id}"
-        }
-        return response
-    
-    @classmethod
-    @route("/post/<regex('^[a-z0-9_-]{3,16}$'):post_slug>")
-    async def get_post(cls, post_slug, scope, receive, send):
-        response = {
-            "status": 200,
-            "body": f"Post Slug: {post_slug}"
-        }
-        return response
+    async def my_route(request: Request):
+        return JSONResponse({"message": "Hello, World!"})
 ```
 
 ### Configuring the Application
