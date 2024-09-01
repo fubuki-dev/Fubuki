@@ -146,7 +146,7 @@ class Fubuki:
                     """
                     response = HTMLResponse(html)
                     await response.send(send)
-                if path == self.openapi_url:
+                elif path == self.openapi_url:
                     await send(
                         {
                             "type": "http.response.start",
