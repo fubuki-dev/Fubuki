@@ -1,7 +1,7 @@
 [project]
 name = "Fubuki"
-version = "0.1.0-dev.1"
-description = "Fubuki: Next generation hybrid web framework"
+version = "0.2.0"
+description = "Next generation hybrid web framework"
 authors = [
     {name = "AmaseCocoa", email = "amase.cocoa@gmail.com"},
 ]
@@ -22,6 +22,7 @@ license = {text = "MIT"}
 speed = [
     "orjson>=3.10.6",
 ]
+
 [build-system]
 requires = ["setuptools>=61", "wheel"]
 build-backend = "setuptools.build_meta"

@@ -5,7 +5,7 @@
 groups = ["default", "speed"]
 strategy = ["inherit_metadata"]
 lock_version = "4.5.0"
-content_hash = "sha256:112bdce86b4a9732dabe863e38981d31d738f002e5952981baf413743d4c6c5c"
+content_hash = "sha256:efc4252c9e34f0a0866e12bc3b1a7be3b971c09e535875d5f7367e9198ba9d82"
 
 [[metadata.targets]]
 requires_python = ">=3.10"
@@ -231,23 +231,6 @@ files = [
     {file = "MarkupSafe-2.1.5-cp312-cp312-win32.whl", hash = "sha256:8590b4ae07a35970728874632fed7bd57b26b0102df2d2b233b6d9d82f6c62ad"},
     {file = "MarkupSafe-2.1.5-cp312-cp312-win_amd64.whl", hash = "sha256:823b65d8706e32ad2df51ed89496147a42a2a6e01c13cfb6ffb8b1e92bc910bb"},
     {file = "MarkupSafe-2.1.5.tar.gz", hash = "sha256:d283d37a890ba4c1ae73ffadf8046435c76e7bc2247bbb63c00bd1a709c6544b"},
-]
-
-[[package]]
-name = "minijinja"
-version = "2.0.1"
-requires_python = ">=3.8"
-summary = "An experimental Python binding of the Rust MiniJinja template engine."
-groups = ["speed"]
-files = [
-    {file = "minijinja-2.0.1-cp38-abi3-macosx_10_12_x86_64.macosx_11_0_arm64.macosx_10_12_universal2.whl", hash = "sha256:063b291cb31f5c33eb77bb4cb457f67f14426ca1418232b8ae9f267155d330cc"},
-    {file = "minijinja-2.0.1-cp38-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:4a4e9d639dd89ce7fef86e82147082ab3c248a36950fa3fbe793685ba322c1b7"},
-    {file = "minijinja-2.0.1-cp38-abi3-manylinux_2_17_armv7l.manylinux2014_armv7l.whl", hash = "sha256:a20373af4ee5430356c196c7fe5f19e3261a4fa16c944542b4de7a2349bac7a6"},
-    {file = "minijinja-2.0.1-cp38-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:ade637bf4826258811a785ccc4e5d41cd2bdf4ec317b1ed3daa4dbbdd020f37d"},
-    {file = "minijinja-2.0.1-cp38-abi3-manylinux_2_5_i686.manylinux1_i686.whl", hash = "sha256:d5ec956d777e0fee8e214af48363334c04f098e986038a9e8cb92a0564f81943"},
-    {file = "minijinja-2.0.1-cp38-abi3-win32.whl", hash = "sha256:039f4d1a1a73f90917cff1ed7c617eb56e2b2f91bbbdc551adaa448e1673e5c2"},
-    {file = "minijinja-2.0.1-cp38-abi3-win_amd64.whl", hash = "sha256:dca5d7689905dce340e36e47348b505c788daf297253b85a1aff506ea63ad1b8"},
-    {file = "minijinja-2.0.1.tar.gz", hash = "sha256:e774beffebfb8a1ad17e638ef70917cf5e94593f79acb8a8fff7d983169f3a4e"},
 ]
 
 [[package]]
